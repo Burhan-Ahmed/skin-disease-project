@@ -31,7 +31,6 @@ User → Image Upload → ResNet Inference → Payment → Result Display & PDF
 - **Frontend:** HTML, CSS, JavaScript (or React if you're using it)
 - **Backend:** Node.js / Express (or Python Flask/Django)
 - **Deep Learning:** Python, TensorFlow / PyTorch (ResNet)
-- **Database:** MongoDB / PostgreSQL
 - **Others:** Stripe/Razorpay (for payment), PDFKit/ReportLab (for PDF generation)
 
 ---
@@ -52,12 +51,11 @@ We used publicly available datasets for training and testing:
 | Layer        | Technology                     |
 |--------------|--------------------------------|
 | **Frontend** | HTML, CSS, JavaScript *(or React)* |
-| **Backend**  | Python (Flask) or Node.js (Express) |
+| **Backend**  | Node.js (Express) |
 | **Model**    | CNN (ResNet - PyTorch/TensorFlow) |
-| **Database** | MongoDB / PostgreSQL           |
-| **Payment**  | Stripe / Razorpay              |
+| **Payment**  | Stripe               |
 | **PDF Gen**  | PDFKit / ReportLab             |
-| **Deployment** | Render / Heroku / Vercel (TBD) |
+| **Deployment** | Vercel (TBD) |
 
 ---
 
