@@ -50,7 +50,7 @@ We used publicly available datasets for training and testing:
 
 | Layer        | Technology                     |
 |--------------|--------------------------------|
-| **Frontend** | HTML, CSS, JavaScript *(or React)* |
+| **Frontend** | TypeScript, TailwindCSS, Vite |
 | **Backend**  | Node.js (Express) |
 | **Model**    | CNN (ResNet - PyTorch/TensorFlow) |
 | **Payment**  | Stripe               |
