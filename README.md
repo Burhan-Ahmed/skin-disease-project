@@ -65,6 +65,7 @@ Access our project meeting notes, planning timeline, and requirement documentati
 
 🔗 [Click here to view the Confluence Document](https://burhanahmed60090-1725033450871.atlassian.net/wiki/spaces/~609ffbeedafdf00068475405/pages/4161552/SRS+Report+Meeting+notes)
 
+View Frontend on: https://skin-disease-project-tufv.vercel.app/
 ---
 
 
