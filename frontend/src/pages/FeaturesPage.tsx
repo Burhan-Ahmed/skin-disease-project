@@ -6,75 +6,84 @@ import { fadeIn, staggerContainer } from '../utils/motion';
 
 const featureList = [
   {
-    Icon: <ShieldCheck className="h-10 w-10" />, 
+    Icon: ShieldCheck,
     title: 'Privacy-First Design',
     description: 'All images and data are encrypted end-to-end and never shared without consent.',
     color: 'from-blue-500 to-cyan-500',
     iconBg: 'bg-blue-100 dark:bg-blue-900/30',
+    iconColor: 'text-blue-600 dark:text-blue-400',
     delay: 0.1
   },
   {
-    Icon: <CheckCircle className="h-10 w-10" />, 
+    Icon: CheckCircle,
     title: 'High-Accuracy AI',
     description: 'Detects over 200 skin conditions with 95%+ accuracy, validated by dermatologists.',
     color: 'from-green-500 to-emerald-500',
     iconBg: 'bg-green-100 dark:bg-green-900/30',
+    iconColor: 'text-green-600 dark:text-green-400',
     delay: 0.2
   },
   {
-    Icon: <HeartPulse className="h-10 w-10" />, 
+    Icon: HeartPulse,
     title: 'Instant Results',
     description: 'Get comprehensive analysis in under 5 seconds directly in your browser.',
     color: 'from-red-500 to-rose-500',
     iconBg: 'bg-red-100 dark:bg-red-900/30',
+    iconColor: 'text-red-600 dark:text-red-400',
     delay: 0.3
   },
   {
-    Icon: <Globe className="h-10 w-10" />, 
+    Icon: Globe,
     title: 'Device Agnostic',
     description: 'Works on any device—mobile, tablet or desktop—no installation needed.',
     color: 'from-purple-500 to-violet-500',
     iconBg: 'bg-purple-100 dark:bg-purple-900/30',
+    iconColor: 'text-purple-600 dark:text-purple-400',
     delay: 0.4
   },
   {
-    Icon: <Sun className="h-10 w-10" />, 
+    Icon: Sun,
     title: 'Light & Dark Mode',
     description: 'Toggle between light and dark themes for comfortable viewing any time of day.',
     color: 'from-yellow-500 to-amber-500',
     iconBg: 'bg-yellow-100 dark:bg-yellow-900/30',
+    iconColor: 'text-yellow-600 dark:text-yellow-400',
     delay: 0.5
   },
   {
-    Icon: <Moon className="h-10 w-10" />, 
+    Icon: Moon,
     title: 'Offline Ready',
     description: 'Cache model in browser and analyse images even without active internet.',
     color: 'from-gray-700 to-gray-600',
     iconBg: 'bg-gray-100 dark:bg-gray-700/30',
+    iconColor: 'text-gray-600 dark:text-gray-400',
     delay: 0.6
   },
   {
-    Icon: <Zap className="h-10 w-10" />, 
+    Icon: Zap,
     title: 'Real-time Analysis',
     description: 'Process images in real-time with our optimized AI algorithms.',
     color: 'from-cyan-500 to-blue-500',
     iconBg: 'bg-cyan-100 dark:bg-cyan-900/30',
+    iconColor: 'text-cyan-600 dark:text-cyan-400',
     delay: 0.7
   },
   {
-    Icon: <Award className="h-10 w-10" />, 
+    Icon: Award,
     title: 'Medical Validation',
     description: 'All results are reviewed by certified dermatologists.',
     color: 'from-orange-500 to-amber-500',
     iconBg: 'bg-orange-100 dark:bg-orange-900/30',
+    iconColor: 'text-orange-600 dark:text-orange-400',
     delay: 0.8
   },
   {
-    Icon: <Lock className="h-10 w-10" />, 
+    Icon: Lock,
     title: 'HIPAA Compliant',
     description: 'Meets healthcare privacy standards for data security.',
     color: 'from-indigo-500 to-blue-500',
     iconBg: 'bg-indigo-100 dark:bg-indigo-900/30',
+    iconColor: 'text-indigo-600 dark:text-indigo-400',
     delay: 0.9
   }
 ];
@@ -111,46 +120,47 @@ const FeaturesPage: React.FC = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {featureList.map((feature, idx) => (
-            <motion.div
-              key={idx}
-              variants={fadeIn('up', 'tween', feature.delay, 1)}
-              className="group"
-            >
-              <div className="h-full bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 group-hover:border-transparent relative overflow-hidden">
-                {/* Gradient top border */}
-                <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${feature.color}`}></div>
-                
-                {/* Icon */}
-                <div className={`${feature.iconBg} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110`}>
-                  <div className={`bg-gradient-to-r ${feature.color} text-transparent bg-clip-text`}>
-                    {feature.Icon}
+          {featureList.map((feature, idx) => {
+            const Icon = feature.Icon;
+            return (
+              <motion.div
+                key={idx}
+                variants={fadeIn('up', 'tween', feature.delay, 1)}
+                className="group"
+              >
+                <div className="h-full bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 group-hover:border-transparent relative overflow-hidden">
+                  {/* Gradient top border */}
+                  <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${feature.color}`}></div>
+                  
+                  {/* Icon - Centered and Fixed */}
+                  <div className={`${feature.iconBg} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 mx-auto`}>
+                    <Icon className={`h-10 w-10 ${feature.iconColor}`} strokeWidth={1.5} />
+                  </div>
+                  
+                  {/* Title & Description */}
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 flex items-center">
+                    <span className="mr-2">{feature.title}</span>
+                    {idx === 1 && (
+                      <span className="bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs px-2 py-1 rounded-full">
+                        Most Accurate
+                      </span>
+                    )}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-6">
+                    {feature.description}
+                  </p>
+                  
+                  {/* Learn More */}
+                  <div className="flex items-center text-blue-600 dark:text-blue-400 font-medium">
+                    <span className="mr-2">Learn more</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
                   </div>
                 </div>
-                
-                {/* Title & Description */}
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 flex items-center">
-                  <span className="mr-2">{feature.title}</span>
-                  {idx === 1 && (
-                    <span className="bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs px-2 py-1 rounded-full">
-                      Most Accurate
-                    </span>
-                  )}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">
-                  {feature.description}
-                </p>
-                
-                {/* Learn More */}
-                <div className="flex items-center text-blue-600 dark:text-blue-400 font-medium">
-                  <span className="mr-2">Learn more</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </motion.div>
         
         <motion.div
