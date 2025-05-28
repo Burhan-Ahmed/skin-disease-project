@@ -28,7 +28,7 @@ User → Image Upload → ResNet Inference → Payment → Result Display & PDF
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** HTML, CSS, JavaScript (or React if you're using it)
+- **Frontend:** TypeScript, Vite, TailwindCSS
 - **Backend:** Node.js / Express (or Python Flask/Django)
 - **Deep Learning:** Python, TensorFlow / PyTorch (ResNet)
 - **Others:** Stripe/Razorpay (for payment), PDFKit/ReportLab (for PDF generation)
