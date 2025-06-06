@@ -1,24 +1,20 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
-import { useAuth } from '../../context/AuthContext';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
-  const { isAuthenticated, user, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
-  const handleLogout = () => { logout(); closeMenu(); };
 
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Features', path: '/features' },
     { name: 'How It Works', path: '/how-it-works' },
-    ...(isAuthenticated ? [{ name: 'Upload Image', path: '/upload' }] : []),
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -60,35 +56,13 @@ const Navbar: React.FC = () => {
               {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
             </button>
 
-            {/* Auth Buttons */}
-            {isAuthenticated ? (
-              <div className="flex items-center space-x-4">
-                <span className="text-gray-700 dark:text-gray-300 text-base font-medium">
-                  {user?.name}
-                </span>
-                <button
-                  onClick={handleLogout}
-                  className="px-4 py-2 bg-blue-600 text-white rounded-md text-base font-semibold hover:bg-blue-700 transition-colors duration-200"
-                >
-                  Logout
-                </button>
-              </div>
-            ) : (
-              <div className="flex items-center space-x-4">
-                <Link
-                  to="/login"
-                  className="text-base font-semibold text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
-                >
-                  Login
-                </Link>
-                <Link
-                  to="/register"
-                  className="px-4 py-2 bg-blue-600 text-white rounded-md text-base font-semibold hover:bg-blue-700 transition-colors duration-200"
-                >
-                  Register
-                </Link>
-              </div>
-            )}
+            {/* Upload Button (Blue BG) */}
+            <Link
+              to="/upload"
+              className="px-4 py-2 bg-blue-600 text-white rounded-md text-base font-semibold hover:bg-blue-700 transition-colors duration-200"
+            >
+              Upload
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -131,31 +105,14 @@ const Navbar: React.FC = () => {
             ))}
           </div>
           <div className="px-5 pb-4 border-t border-gray-200 dark:border-gray-700">
-            {isAuthenticated ? (
-              <button
-                onClick={handleLogout}
-                className="w-full text-left px-3 py-2 text-lg font-semibold text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
-              >
-                Logout
-              </button>
-            ) : (
-              <>
-                <Link
-                  to="/login"
-                  onClick={closeMenu}
-                  className="block px-3 py-2 text-lg font-semibold text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
-                >
-                  Login
-                </Link>
-                <Link
-                  to="/register"
-                  onClick={closeMenu}
-                  className="mt-1 block px-3 py-2 text-lg font-semibold text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
-                >
-                  Register
-                </Link>
-              </>
-            )}
+            {/* Upload Button in Mobile */}
+            <Link
+              to="/upload"
+              onClick={closeMenu}
+              className="mt-1 block px-3 py-2 text-lg font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700 transition-colors duration-200"
+            >
+              Upload
+            </Link>
           </div>
         </div>
       )}
