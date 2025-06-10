@@ -1,7 +1,7 @@
 # main.py
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
-import uvicorn
+
 from ultralytics import YOLO
 from PIL import Image
 import io
