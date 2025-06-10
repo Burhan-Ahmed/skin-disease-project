@@ -51,24 +51,25 @@ const ResultsPage = () => {
   const [result, setResult] = useState<typeof mockResult | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  
+
   useEffect(() => {
-    // In a real app, fetch result from API using the ID
     const fetchResult = async () => {
       try {
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        setResult(mockResult);
-      } catch {
-  setError('Failed to load results. Please try again.');
-}  finally {
+        const response = await fetch(`http://localhost:5000/api/results/${id}`);
+        if (!response.ok) throw new Error('Failed to fetch result');
+        const data = await response.json();
+        setResult(data);
+      } catch (err) {
+        setError('Failed to load results. Please try again.');
+      } finally {
         setIsLoading(false);
       }
     };
-    
+
     fetchResult();
   }, [id]);
-  
+
+
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -79,7 +80,7 @@ const ResultsPage = () => {
       </div>
     );
   }
-  
+
   if (error || !result) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -94,11 +95,11 @@ const ResultsPage = () => {
       </div>
     );
   }
-  
+
   const primaryPrediction = result.predictions[0];
   const secondaryPredictions = result.predictions.slice(1);
   const confidence = Math.round(primaryPrediction.confidence * 100);
-  
+
   const getSeverityColor = (severity: string) => {
     switch (severity.toLowerCase()) {
       case 'mild':
@@ -111,7 +112,7 @@ const ResultsPage = () => {
         return 'text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-900/20';
     }
   };
-  
+
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="text-center mb-12">
@@ -120,40 +121,40 @@ const ResultsPage = () => {
           Here's what our AI detected in your image
         </p>
       </div>
-      
+
       <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transition-colors duration-300">
         <div className="p-6 md:p-8 border-b border-gray-200 dark:border-gray-700">
           <div className="md:flex">
             <div className="md:w-1/3 mb-6 md:mb-0 md:pr-6">
               <div className="rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-700">
-                <img 
-                  src={result.image} 
-                  alt="Analyzed skin image" 
+                <img
+                  src={result.image}
+                  alt="Analyzed skin image"
                   className="w-full h-auto object-cover"
                 />
               </div>
               <div className="mt-4 flex space-x-3">
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   fullWidth
                   className="flex justify-center items-center"
-                  onClick={() => {/* Download functionality would be implemented here */}}
+                  onClick={() => {/* Download functionality would be implemented here */ }}
                 >
                   <Download className="h-4 w-4 mr-2" />
                   Save
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   fullWidth
                   className="flex justify-center items-center"
-                  onClick={() => {/* Share functionality would be implemented here */}}
+                  onClick={() => {/* Share functionality would be implemented here */ }}
                 >
                   <Share2 className="h-4 w-4 mr-2" />
                   Share
                 </Button>
               </div>
             </div>
-            
+
             <div className="md:w-2/3">
               <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6 mb-6">
                 <div className="flex justify-between items-start mb-4">
@@ -175,11 +176,11 @@ const ResultsPage = () => {
                     <div className="text-sm text-gray-600 dark:text-gray-300">Confidence</div>
                   </div>
                 </div>
-                
+
                 <p className="text-gray-700 dark:text-gray-300 mb-4">
                   {primaryPrediction.description}
                 </p>
-                
+
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Common Treatments:</h3>
                   <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
@@ -189,12 +190,12 @@ const ResultsPage = () => {
                   </ul>
                 </div>
               </div>
-              
+
               <div className="space-y-4">
                 <h3 className="font-semibold text-gray-900 dark:text-white">Other Possible Conditions:</h3>
                 {secondaryPredictions.map((prediction, index) => (
-                  <div 
-                    key={index} 
+                  <div
+                    key={index}
                     className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 flex justify-between items-center"
                   >
                     <div>
@@ -217,7 +218,7 @@ const ResultsPage = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="p-6 md:p-8 bg-gray-50 dark:bg-gray-700 flex flex-col md:flex-row items-start justify-between">
           <div className="flex items-start mb-4 md:mb-0 md:w-3/4 md:pr-6">
             <AlertTriangle className="h-5 w-5 text-yellow-500 mr-3 mt-1 flex-shrink-0" />
@@ -232,14 +233,14 @@ const ResultsPage = () => {
           </div>
         </div>
       </div>
-      
+
       <div className="mt-12 bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transition-colors duration-300">
         <div className="p-6 md:p-8">
           <div className="flex items-center mb-6">
             <Info className="h-6 w-6 text-blue-600 dark:text-blue-400 mr-3" />
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Next Steps</h2>
           </div>
-          
+
           <div className="space-y-6">
             <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-5">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
@@ -250,7 +251,7 @@ const ResultsPage = () => {
                 Our AI provides an initial assessment, but a professional diagnosis by a certified dermatologist is recommended for proper treatment.
               </p>
             </div>
-            
+
             <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-5">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
                 <Check className="h-5 w-5 text-green-500 mr-2" />
@@ -260,7 +261,7 @@ const ResultsPage = () => {
                 Download or save these results to share with your healthcare provider. This will help them understand your condition better.
               </p>
             </div>
-            
+
             <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-5">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
                 <Check className="h-5 w-5 text-green-500 mr-2" />

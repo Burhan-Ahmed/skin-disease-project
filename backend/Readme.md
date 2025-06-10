@@ -28,11 +28,10 @@ def predict(data: dict):
     return {"prediction": prediction.tolist()}
 
 
-Middleware:
-- Add some nesscary protocols with the incoming request or generated respose for the compatiliblity between backend and frontend.
+### Middleware:
+- Add some necessary protocols with the incoming request or generated response for the compatibility between backend and frontend.
 - It acts like a middle layer between the frontend (client) and the backend (server).
 
-
-uvicorn:
-- Uvicorn is for conitnous reloading of server as cahnges take place.
-- uvicorn is to fastapi as nodemon is to expressJs.
+### Uvicorn:
+- Uvicorn is for continuous reloading of server as changes take place.
+- Uvicorn is to FastAPI as nodemon is to ExpressJS.
