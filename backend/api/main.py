@@ -38,7 +38,7 @@ async def predict(file: UploadFile = File(...)):
         best_box = results[0].boxes[0]  # Boxes are sorted by confidence by default
         return {
             "prediction": model.names[int(best_box.cls)],
-            "confidence": float(best_box.conf),
+            "confidence": (float(best_box.conf)*100),
             "bbox": best_box.xyxy[0].tolist()
         }
     else:
