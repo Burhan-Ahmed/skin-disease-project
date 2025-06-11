@@ -7,7 +7,7 @@ import { fadeIn, staggerContainer } from '../utils/motion';
 
 const HowItWorksPage = () => {
   const { isAuthenticated } = useAuth();
-  
+
   const steps = [
     {
       icon: <Upload className="h-8 w-8" />,
@@ -102,7 +102,7 @@ const HowItWorksPage = () => {
           </motion.div>
         </div>
       </section>
-      
+
       {/* Process Flow Section */}
       <section className="mb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -120,7 +120,7 @@ const HowItWorksPage = () => {
               Get accurate skin analysis in minutes, not days
             </p>
           </motion.div>
-          
+
           <div className="relative">
             <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 transform -translate-y-1/2 z-0" />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 relative z-10">
@@ -151,7 +151,7 @@ const HowItWorksPage = () => {
               ))}
             </div>
           </div>
-          
+
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -167,12 +167,12 @@ const HowItWorksPage = () => {
           </motion.div>
         </div>
       </section>
-      
+
       {/* AI Technology Section */}
       <section className="mb-24 bg-white dark:bg-gray-800 py-16 rounded-2xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center">
-            <motion.div 
+            <motion.div
               className="md:w-1/2 mb-12 md:mb-0 md:pr-12"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -185,11 +185,11 @@ const HowItWorksPage = () => {
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Advanced AI Technology</h2>
               </div>
-              
+
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
                 AI Derma Checker uses state-of-the-art deep learning models trained on millions of dermatologist-labeled images to identify over 200 skin conditions with remarkable accuracy.
               </p>
-              
+
               <ul className="space-y-4">
                 <li className="flex items-start bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4">
                   <div className="bg-white dark:bg-gray-700 rounded-full p-2 mr-4">
@@ -202,7 +202,7 @@ const HowItWorksPage = () => {
                     </p>
                   </div>
                 </li>
-                
+
                 <li className="flex items-start bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4">
                   <div className="bg-white dark:bg-gray-700 rounded-full p-2 mr-4">
                     <Check className="h-5 w-5 text-green-500" />
@@ -214,7 +214,7 @@ const HowItWorksPage = () => {
                     </p>
                   </div>
                 </li>
-                
+
                 <li className="flex items-start bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4">
                   <div className="bg-white dark:bg-gray-700 rounded-full p-2 mr-4">
                     <Check className="h-5 w-5 text-green-500" />
@@ -228,32 +228,10 @@ const HowItWorksPage = () => {
                 </li>
               </ul>
             </motion.div>
-            
-            <motion.div 
-              className="md:w-1/2"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <div className="rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700">
-                <img 
-                  src="https://images.pexels.com/photos/8439093/pexels-photo-8439093.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                  alt="AI Technology Visualization" 
-                  className="w-full h-auto object-cover transition-transform duration-500 hover:scale-105"
-                />
-                <div className="bg-gradient-to-t from-black to-transparent p-6 text-white absolute bottom-0 left-0 right-0">
-                  <div className="max-w-md">
-                    <h3 className="font-bold text-xl mb-2">Deep Learning Architecture</h3>
-                    <p className="opacity-90">Our neural network processes images with over 50 layers of analysis</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>
-      
+
       {/* Image Guidelines Section */}
       <section className="mb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -274,7 +252,7 @@ const HowItWorksPage = () => {
               Follow these guidelines to ensure our AI can provide the most accurate analysis
             </p>
           </motion.div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {guidelines.map((item, index) => (
               <motion.div
@@ -286,9 +264,9 @@ const HowItWorksPage = () => {
                 className="bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-lg"
               >
                 <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={item.image} 
-                    alt={item.title} 
+                  <img
+                    src={item.image}
+                    alt={item.title}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                   />
                   <div className="absolute top-4 right-4 bg-white dark:bg-gray-700 rounded-full w-10 h-10 flex items-center justify-center shadow-md">
@@ -306,12 +284,12 @@ const HowItWorksPage = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Privacy & Security Section */}
       <section className="mb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center">
-            <motion.div 
+            <motion.div
               className="md:w-1/2 mb-12 md:mb-0"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -319,9 +297,9 @@ const HowItWorksPage = () => {
               viewport={{ once: true }}
             >
               <div className="rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700">
-                <img 
-                  src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                  alt="Data Security Visualization" 
+                <img
+                  src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                  alt="Data Security Visualization"
                   className="w-full h-auto object-cover"
                 />
                 <div className="bg-gradient-to-t from-black to-transparent p-6 text-white absolute bottom-0 left-0 right-0">
@@ -332,8 +310,8 @@ const HowItWorksPage = () => {
                 </div>
               </div>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="md:w-1/2 md:pl-12"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -346,11 +324,11 @@ const HowItWorksPage = () => {
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Privacy & Security</h2>
               </div>
-              
+
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
                 We take your privacy seriously. All images and personal information are encrypted and handled according to the highest security standards.
               </p>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 {securityFeatures.map((feature, index) => (
                   <div key={index} className="flex items-start bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
@@ -364,7 +342,7 @@ const HowItWorksPage = () => {
                   </div>
                 ))}
               </div>
-              
+
               <Button variant="outline" className="border-blue-500 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20">
                 View Privacy Policy
               </Button>
@@ -372,7 +350,7 @@ const HowItWorksPage = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Important Disclaimer */}
       <section className="mb-16 bg-yellow-50 dark:bg-yellow-900/20 py-8 border-t border-b border-yellow-100 dark:border-yellow-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -395,7 +373,7 @@ const HowItWorksPage = () => {
           </motion.div>
         </div>
       </section>
-      
+
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-900 dark:to-cyan-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -411,8 +389,8 @@ const HowItWorksPage = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link to={isAuthenticated ? "/upload" : "/register"}>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   size="lg"
                   className="bg-white text-blue-600 hover:bg-blue-50 border-0 shadow-lg"
                 >
@@ -420,8 +398,8 @@ const HowItWorksPage = () => {
                 </Button>
               </Link>
               <Link to="/about">
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   size="lg"
                   className="bg-white/10 text-white border-white/20 hover:bg-white/20 shadow-lg"
                 >

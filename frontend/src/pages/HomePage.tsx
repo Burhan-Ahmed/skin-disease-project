@@ -4,6 +4,10 @@ import Button from '../components/common/Button';
 import { Check, ShieldCheck, Award, Upload, HeartPulse, Bot } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { fadeIn, staggerContainer } from "../utils/motion"
+import acneImg from '../assets/shutterstock_2426911973.jpg';
+import eczemaImg from '../assets/eczema.png';
+import psoriasisImg from '../assets/who-gets-psoriasis-large-plaque-on-elbow.jpg';
+
 
 const HomePage: React.FC = () => {
   const { isAuthenticated } = useAuth();
@@ -47,6 +51,25 @@ const HomePage: React.FC = () => {
       icon: <HeartPulse className="h-6 w-6" />,
       title: 'Get Results',
       description: 'Receive a detailed analysis with potential conditions and recommended next steps.',
+    },
+  ];
+
+  // Add this at the top or fetch from an API in the future
+  const diseases = [
+    {
+      name: "Acne",
+      description: "A common skin condition causing pimples, blackheads, and whiteheads.",
+      image: acneImg,
+    },
+    {
+      name: "Eczema",
+      description: "An inflammatory skin condition causing red, itchy, and dry skin.",
+      image: eczemaImg,
+    },
+    {
+      name: "Psoriasis",
+      description: "A chronic autoimmune condition that causes the rapid build-up of skin cells.",
+      image: psoriasisImg,
     },
   ];
 
@@ -97,7 +120,7 @@ const HomePage: React.FC = () => {
                     How It Works
                   </Button>
                 </Link>
-              </div>               
+              </div>
             </motion.div>
             <motion.div
               variants={fadeIn('left', 'tween', 0.2, 1)}
@@ -174,68 +197,33 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <span className="inline-block bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-4">
-              Simple Process
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              How Our AI Analysis Works
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Get accurate results in three simple steps
-            </p>
-          </motion.div>
-          <div className="relative">
-            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 transform -translate-y-1/2 z-0" />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-              {steps.map((step, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  viewport={{ once: true }}
-                  className="text-center bg-white dark:bg-gray-700 p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
-                >
-                  <div className="bg-blue-500 text-white rounded-full w-14 h-14 flex items-center justify-center mx-auto mb-6 text-xl font-bold relative">
-                    <span>{step.number}</span>
-                    <div className="absolute -top-2 -right-2 bg-white dark:bg-gray-800 p-1 rounded-full shadow-md">
-                      {step.icon}
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    {step.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            viewport={{ once: true }}
-            className="text-center mt-16"
-          >
-            <Link to={isAuthenticated ? '/upload' : '/register'}>
-              <Button variant="primary" size="lg" className="shadow-lg">
-                {isAuthenticated ? 'Start New Analysis' : 'Try It Now - Free'}
-              </Button>
-            </Link>
-          </motion.div>
+      <section className="max-w-5xl mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {diseases.map((disease, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white dark:bg-gray-800 border border-blue-200 dark:border-blue-700 rounded-xl p-6 shadow-sm hover:shadow-lg transition-transform hover:-translate-y-1"
+            >
+              <img
+                src={disease.image}
+                alt={`${disease.name} image`}
+                className="w-full h-40 object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                {disease.name}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                {disease.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </section>
+
 
 
       {/* CTA Section */}

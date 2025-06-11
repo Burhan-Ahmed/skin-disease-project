@@ -1,0 +1,9 @@
+Trained on 75 Epochs
+keys: ['metrics/precision(B)', 'metrics/recall(B)', 'metrics/mAP50(B)', 'metrics/mAP50-95(B)']
+maps: array([   0.049666,    0.040186,     0.10453,     0.14022,    0.039426,    0.065278,    0.006145,     0.12439,     0.41854,     0.25455])
+names: {0: 'Acne', 1: 'Atopic Dermatitis', 2: 'Chicken Skin', 3: 'Eczema', 4: 'Hansen-s Disease-Leprosy', 5: 'Hansen-s Disease-Leprosy- severe', 6: 'Healthy skin', 7: 'Psoriasis', 8: 'Ringworm', 9: 'Warts'}
+plot: True
+results_dict: {'metrics/precision(B)': np.float64(0.3199400180556137), 'metrics/recall(B)': np.float64(0.29707816206745047), 'metrics/mAP50(B)': np.float64(0.2747155298779327), 'metrics/mAP50-95(B)': np.float64(0.1242936859886889), 'fitness': np.float64(0.13933587037761327)}
+save_dir: PosixPath('runs/detect/train')
+speed: {'preprocess': 0.34225672768124177, 'inference': 2.6263398705351295, 'loss': 0.0004120267829778511, 'postprocess': 3.8679698928599953}
+task: 'detect'
