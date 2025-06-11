@@ -19,7 +19,7 @@ export default function Success() {
         Payment Successful!
       </h2>
       <p className="text-gray-700 dark:text-gray-300 text-lg">
-        Your payment has been processed. We’re now analyzing your image.
+        Your payment has been processed. We're now analyzing your image.
       </p>
       <p className="text-sm mt-2 text-gray-500 dark:text-gray-400">
         Redirecting to results...

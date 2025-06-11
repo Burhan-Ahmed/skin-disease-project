@@ -53,6 +53,11 @@ const UploadPage = () => {
 
       const data = await res.json();
       const stripe = await stripePromise;
+      if (!stripe) {
+        setError("Stripe initialization failed. Please try again later.");
+        setIsLoading(false);
+        return;
+      }
       await stripe.redirectToCheckout({ sessionId: data.id });
     } catch (err) {
       console.error("Stripe error:", err);
