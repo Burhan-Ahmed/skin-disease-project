@@ -54,7 +54,7 @@ const UploadPage = () => {
       const data = await res.json();
       const stripe = await stripePromise;
       if (!stripe) {
-        setError("Stripe initialization failed. Please try again later.");
+        setError("Stripe failed to load. Please try again later.");
         setIsLoading(false);
         return;
       }
