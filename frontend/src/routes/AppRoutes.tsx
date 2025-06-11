@@ -14,6 +14,8 @@ import TermsOfServicePage from '../pages/TermsOfServicePage';
 import ContactUsPage from '../pages/ContactUsPage';
 import FAQPage from '../pages/FAQPage';
 import NotFoundPage from '../pages/NotFoundPage';
+import Success from '../pages/Success';
+import Cancel from '../pages/Cancel';
 
 // Protected route component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -54,6 +56,9 @@ const AppRoutes = () => {
           </ProtectedRoute>
         } 
       />
+      <Route path="/success" element={<Success />} />
+      <Route path="/cancel" element={<Cancel />} />
+
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );

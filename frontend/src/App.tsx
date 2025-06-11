@@ -4,6 +4,9 @@ import { AuthProvider } from './context/AuthContext';
 import AppRoutes from './routes/AppRoutes';
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
+import Success from './pages/Success';
+import Cancel from './pages/Cancel';
+
 
 function App() {
   const [loading, setLoading] = useState(true);
