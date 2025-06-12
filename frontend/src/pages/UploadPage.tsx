@@ -102,7 +102,7 @@ const UploadPage = () => {
                   <Button variant="outline" fullWidth onClick={handleCancelUpload}>
                     Cancel
                   </Button>
-                  <Button variant="primary" fullWidth onClick={handleAnalyzeImage} isLoading={isLoading}>
+                  <Button data-cy="pay-button" variant="primary" fullWidth onClick={handleAnalyzeImage} isLoading={isLoading}>
                     Proceed to Payment
                   </Button>
                 </div>
@@ -110,6 +110,7 @@ const UploadPage = () => {
             ) : (
               <div className="h-full flex flex-col items-center justify-center border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-6 text-center">
                 <input
+                  data-cy="file-input"
                   type="file"
                   className="hidden"
                   accept="image/*"
@@ -117,6 +118,7 @@ const UploadPage = () => {
                   onChange={handleFileChange}
                   capture="environment"
                 />
+
 
                 {error && (
                   <div className="mb-4 w-full bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-900/30 text-red-600 dark:text-red-400 rounded-md p-3 text-sm flex items-start">
@@ -144,7 +146,6 @@ const UploadPage = () => {
               </div>
             )}
           </div>
-
           <div className="md:w-1/2 bg-blue-50 dark:bg-blue-900/20 p-6 md:p-8 border-t md:border-t-0 md:border-l border-gray-200 dark:border-gray-700">
             {/* Tips (unchanged) */}
             ...
