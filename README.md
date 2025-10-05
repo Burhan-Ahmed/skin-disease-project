@@ -26,17 +26,6 @@ User → Image Upload → ResNet Inference → Payment → Result Display & PDF
 
 ---
 
-## 🛠️ Tech Stack
-
-- **Frontend:** TypeScript, Vite, TailwindCSS
-- **Backend:** Node.js / Express (or Python Flask/Django)
-- **Deep Learning:** Python, TensorFlow / PyTorch (ResNet)
-- **Others:** Stripe/Razorpay (for payment), PDFKit/ReportLab (for PDF generation)
-
----
-
----
-
 ## 🧾 Dataset Information
 
 We used publicly available datasets for training and testing:
@@ -51,7 +40,7 @@ We used publicly available datasets for training and testing:
 | Layer        | Technology                     |
 |--------------|--------------------------------|
 | **Frontend** | TypeScript, TailwindCSS, Vite |
-| **Backend**  | Node.js (Express) |
+| **Backend**  | Express/FastAPI |
 | **Model**    | CNN (ResNet - PyTorch/TensorFlow) |
 | **Payment**  | Stripe               |
 | **PDF Gen**  | PDFKit / ReportLab             |
